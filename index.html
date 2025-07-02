@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arka Prava Roy - Data Scientist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .profile-info .title {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        .contact-item i {
+            font-size: 1.1rem;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8edff);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateX(10px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9ff, #e8edff);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover, .project-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .job-header, .edu-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title, .degree, .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company, .institution {
+            color: #667eea;
+            font-weight: 500;
+            margin: 5px 0;
+        }
+
+        .duration, .grade {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+
+        .publications {
+            display: grid;
+            gap: 15px;
+        }
+
+        .publication-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8edff);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateX(10px);
+        }
+
+        .activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .activity-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8edff);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-item i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .job-header, .edu-header, .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .duration, .grade {
+                margin-top: 10px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape">🔬</div>
+        <div class="shape">📊</div>
+        <div class="shape">🤖</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <div class="profile-image">
+                    AR
+                </div>
+                <div class="profile-info">
+                    <h1>Arka Prava Roy</h1>
+                    <div class="title">Data Scientist & ML Engineer</div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91-7478153152</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>arkapravaroy98@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Purulia, West Bengal</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2><i class="fas fa-user-circle"></i> Summary</h2>
+            <div class="summary">
+                An efficient problem solver and results-driven Data Scientist with a proven track record at Intellithink Industrial IoT, specialising in predictive maintenance and anomaly detection. Proficient in machine learning and signal processing, developed advanced analytics tools that predicted equipment failures months in advance. Strong collaborator with a passion for innovative solutions and continuous improvement.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-cogs"></i> Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Science</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Time-Series Analysis</span>
+                        <span class="skill-tag">Anomaly Detection</span>
+                        <span class="skill-tag">Signal Processing</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">Feature Engineering</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">MLOps</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Keras</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS SageMaker</span>
+                        <span class="skill-tag">AWS Lambda</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">DynamoDB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Data Scientist</div>
+                        <div class="company">Intellithink Industrial IoT, Bengaluru</div>
+                    </div>
+                    <div class="duration">March 2022 - Present</div>
+                </div>
+                <ul class="achievements">
+                    <li>Developed multi-tier rule-based diagnostics and deployed using AWS SageMaker and AWS Serverless services for scalable fault detection</li>
+                    <li>Performed extensive feature engineering on vibration signal and worked on development of unsupervised anomaly detection models in production that predicted equipment failure 2-3 months in advance (with 5% False Positive and 1% False Negative Rate)</li>
+                    <li>Built, maintained and updated predictive maintenance pipelines on AWS SageMaker for industrial equipment monitoring and analysis</li>
+                    <li>Principal contributor in implementation of unsupervised machine learning models with extensive feature engineering for Motor Current Signature Analysis (MCSA), successfully preventing 2 critical equipment failures</li>
+                    <li>Applied automatic resonance-band detection and envelope analysis for bearing fault identification; created proprietary signal processing tools for comprehensive machinery fault analysis</li>
+                    <li>Developed advanced analytics and KPIs across vibration, current, ultrasound, and stray magnetic flux data, enabling early-stage alert generation for maintenance teams</li>
+                    <li>Utilized statistical methods, time series analysis, and signal processing to automate customized threshold setting for vibration data across 3,000+ monitoring locations; achieved 95% automation rate</li>
+                    <li>Designed, developed, and deployed automatic trend analysis pipeline for RMS vibration, acoustics, temperature, and magnetic flux monitoring across 3,000+ devices</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Undergraduate Researcher</div>
+                        <div class="company">National Institute of Technology Durgapur</div>
+                    </div>
+                    <div class="duration">Sept 2019 - July 2021</div>
+                </div>
+                <ul class="achievements">
+                    <li>Conducted machine-learning classification of ECG beats for IoT-based monitoring under Dr. Hemanta K. Mondal</li>
+                    <li>Designed deep-learning model & NoC accelerator for epileptic seizure recognition</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Research Intern</div>
+                        <div class="company">Indian Institute of Technology Patna</div>
+                    </div>
+                    <div class="duration">April 2020 - July 2020</div>
+                </div>
+                <ul class="achievements">
+                    <li>Part of IITP-AINLP team for SocialNLP 2020: data annotation, web interface for emotion-GIF classification under Dr. Asif Ekbal</li>
+                    <li>Built multi-label toxicity classification model and hosted web app using Heroku</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Research Intern</div>
+                        <div class="company">Indian Statistical Institute Kolkata</div>
+                    </div>
+                    <div class="duration">May 2019 - July 2019</div>
+                </div>
+                <ul class="achievements">
+                    <li>Developed BiLSTM models in Python/Keras to analyse GECO eye-gaze corpus for reading-pattern research under Prof. Utpal Garain</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education-item">
+                <div class="edu-header">
+                    <div>
+                        <div class="degree">B.Tech in Electronics & Communication Engineering</div>
+                        <div class="institution">National Institute of Technology, Durgapur</div>
+                    </div>
+                    <div class="grade">CGPA: 9.1/10 (July 2017-July 2021)</div>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="edu-header">
+                    <div>
+                        <div class="degree">Higher Secondary</div>
+                        <div class="institution">Purulia Zilla School, Purulia</div>
+                    </div>
+                    <div class="grade">90.8% (June 2016)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-project-diagram"></i> Notable Projects</h2>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">EmotionGIF 2020 - SocialNLP 2020 (ACL 2020)</div>
+                </div>
+                <ul class="achievements">
+                    <li>Proposed attention layer-based ensemble deep neural system for classification of emotion of GIF responses of tweets</li>
+                    <li>Achieved 5th rank in both rounds, submitted technical paper and presented at SocialNLP 2020</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Eyes Speak Out Mind: Deep Models for Gaze-Based Analysis</div>
+                </div>
+                <ul class="achievements">
+                    <li>Developed deep learning model to differentiate between bilingual first and second language reading using GECO Corpus</li>
+                    <li>Utilised mRMR feature selection algorithm to identify important eye movement properties</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">NoC-Based ANN Framework for Epileptic Seizure Recognition</div>
+                </div>
+                <ul class="achievements">
+                    <li>Developed ANN model for epileptic seizure recognition and mapped to NoC for performance analysis</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-file-alt"></i> Publications</h2>
+            <div class="publications">
+                <div class="publication-item">
+                    <strong>EmotionGIF 2020:</strong> Attention layer-based ensemble deep neural system for emotion classification
+                </div>
+                <div class="publication-item">
+                    <strong>Eyes Speak Out Mind:</strong> Deep Models for Gaze-Based Analysis of Bilingual and Monolingual Reading
+                </div>
+                <div class="publication-item">
+                    <strong>An Efficient NoC-Based ANN Framework</strong> for Epileptic Seizure Recognition
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-heart"></i> Extracurricular Activities</h2>
+            <div class="activities">
+                <div class="activity-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>NSS Volunteer</h3>
+                    <p>NIT Durgapur (2017-2018)</p>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Recitation</h3>
+                    <p>Awards in several competitions</p>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-swimmer"></i>
+                    <h3>Swimming</h3>
+                    <p>Enthusiast</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Arka Prava Roy. Built with passion for data science and innovation.</p>
+        </footer>
+    </div>
+</body>
+</html>
