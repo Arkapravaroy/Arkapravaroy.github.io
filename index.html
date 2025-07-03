@@ -4,41 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arka Prava Roy - Data Scientist</title>
+    <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        /* Reset all default browser styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Main body styling with professional dark background */
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #e0e0e0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d4a3e 50%, #1a1a1a 100%);
+            color: #e0e0e0; /* Light text for dark background */
+            /* Professional dark gradient background */
+            background: linear-gradient(135deg, #1a1a2e 25%, #0b110e 50%, #153324 100%);
             min-height: 100vh;
         }
 
+        /* Main container for all content */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
+        /* Header section with glassmorphism effect */
         header {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Semi-transparent white background with blur effect */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
+            /* Subtle border for glassmorphism */
+            border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
+        /* Animated top border for header */
         header::before {
             content: '';
             position: absolute;
@@ -46,15 +55,18 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #4ade80, #22d3ee, #818cf8);
-            animation: shimmer 3s ease-in-out infinite;
+            /* Professional gradient with gold/white accent */
+            background: linear-gradient(90deg, #f7c77c, #ffffff, #f1d6ad);
+           /* animation: shimmer 3s ease-in-out infinite;
         }
 
+        /* Shimmer animation for top border */
         @keyframes shimmer {
             0%, 100% { transform: translateX(-100%); }
             50% { transform: translateX(100%); }
         }
 
+        /* Profile section layout */
         .profile-section {
             display: flex;
             align-items: center;
@@ -63,41 +75,49 @@
             margin-bottom: 20px;
         }
 
+        /* Profile image/initials circle */
         .profile-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #4ade80, #22d3ee);
+            /* Professional dark to gold gradient */
+            background: linear-gradient(135deg, #0b110e, #f7c77c, #f1d6ad);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 48px;
             color: white;
             font-weight: bold;
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+            /* Glowing shadow effect */
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
             transition: transform 0.3s ease;
         }
 
+        /* Hover effect for profile image */
         .profile-image:hover {
             transform: scale(1.05) rotate(5deg);
         }
 
+        /* Main name styling */
         .profile-info h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #4ade80, #22d3ee);
+            /* Gold to white gradient for name */
+            background: linear-gradient(135deg, #f7c77c, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 10px;
         }
 
+        /* Job title styling */
         .profile-info .title {
             font-size: 1.3rem;
-            color: #a0a0a0;
+            color: #b0b0b0; /* Muted light gray */
             margin-bottom: 15px;
         }
 
+        /* Contact information layout */
         .contact-info {
             display: flex;
             justify-content: center;
@@ -105,49 +125,59 @@
             flex-wrap: wrap;
         }
 
+        /* Individual contact item styling */
         .contact-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #a0a0a0;
+            color: #b0b0b0; /* Muted light gray */
             transition: color 0.3s ease;
         }
 
+        /* Hover effect for contact items */
         .contact-item:hover {
-            color: #4ade80;
+            color: #f7c77c; /* Gold on hover */
         }
 
+        /* Contact icons */
         .contact-item i {
             font-size: 1.1rem;
         }
 
+        /* Main section styling */
         .section {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Semi-transparent dark background */
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            /* Subtle border for definition */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* Hover effect for sections */
         .section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
 
+        /* Section headings */
         .section h2 {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 25px;
-            background: linear-gradient(135deg, #4ade80, #22d3ee);
+            /* Gold to white gradient for headings */
+            background: linear-gradient(135deg, #f7c77c, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             position: relative;
         }
 
+        /* Underline accent for section headings */
         .section h2::after {
             content: '';
             position: absolute;
@@ -155,80 +185,99 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: linear-gradient(135deg, #4ade80, #22d3ee);
+            background: linear-gradient(135deg, #f7c77c, #ffffff);
             border-radius: 2px;
         }
 
+        /* Summary text styling */
         .summary {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #d0d0d0;
+            color: #d0d0d0; /* Light gray for readability */
             text-align: justify;
         }
 
+        /* Skills section grid layout */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
+        /* Individual skill category container */
         .skill-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Dark glassmorphism background */
+            background: rgba(255, 255, 255, 0.08);
             padding: 25px;
             border-radius: 15px;
-            border-left: 4px solid #4ade80;
+            /* Gold left border accent */
+            border-left: 4px solid #f7c77c;
+            /* Subtle top border */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
         }
 
+        /* Hover effect for skill categories */
         .skill-category:hover {
             transform: translateX(10px);
         }
 
+        /* Skill category headings */
         .skill-category h3 {
-            color: #4ade80;
+            color: #f7c77c; /* Gold color */
             margin-bottom: 15px;
             font-weight: 600;
         }
 
+        /* Container for skill tags */
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
 
+        /* Individual skill tag styling */
         .skill-tag {
-            background: rgba(74, 222, 128, 0.1);
-            color: #4ade80;
+            /* Semi-transparent gold background */
+            background: rgba(255, 215, 0, 0.15);
+            color: #f7c77c;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
+            /* Subtle border */
+            border: 1px solid rgba(255, 215, 0, 0.3);
             transition: all 0.3s ease;
-            border: 1px solid rgba(74, 222, 128, 0.2);
         }
 
+        /* Hover effect for skill tags */
         .skill-tag:hover {
-            background: #4ade80;
-            color: #1a1a1a;
+            background: #f7c77c;
+            color: #1a1a2e; /* Dark text on gold background */
             transform: scale(1.05);
         }
 
+        /* Experience, education, and project item styling */
         .experience-item, .education-item, .project-item {
             margin-bottom: 30px;
             padding: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Dark glassmorphism background */
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 15px;
-            border-left: 4px solid #4ade80;
+            /* Gold left border accent */
+            border-left: 4px solid #f7c77c;
+            /* Subtle border */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
+        /* Hover effects for items */
         .experience-item:hover, .education-item:hover, .project-item:hover {
             transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
         }
 
+        /* Header layout for job/education/project items */
         .job-header, .edu-header, .project-header {
             display: flex;
             justify-content: space-between;
@@ -237,158 +286,188 @@
             flex-wrap: wrap;
         }
 
+        /* Job titles, degrees, and project titles */
         .job-title, .degree, .project-title {
             font-size: 1.3rem;
             font-weight: 600;
-            color: #e0e0e0;
+            color: #ffffff; /* Pure white for emphasis */
         }
 
+        /* Company and institution names */
         .company, .institution {
-            color: #4ade80;
+            color: #f7c77c; /* Gold color */
             font-weight: 500;
             margin: 5px 0;
         }
 
+        /* Duration and grade badges */
         .duration, .grade {
-            background: rgba(74, 222, 128, 0.1);
-            color: #4ade80;
+            /* Semi-transparent gold background */
+            background: rgba(255, 215, 0, 0.15);
+            color: #f7c77c;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
-            border: 1px solid rgba(74, 222, 128, 0.2);
+            /* Subtle border */
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
+        /* Achievement lists */
         .achievements {
             list-style: none;
             padding-left: 0;
         }
 
+        /* Individual achievement items */
         .achievements li {
             position: relative;
             padding-left: 25px;
             margin-bottom: 12px;
-            color: #c0c0c0;
+            color: #d0d0d0; /* Light gray for readability */
             line-height: 1.6;
         }
 
+        /* Custom bullet points for achievements */
         .achievements li::before {
             content: '▶';
             position: absolute;
             left: 0;
-            color: #4ade80;
+            color: #f7c77c; /* Gold bullets */
             font-size: 0.8rem;
         }
 
+        /* Publications section layout */
         .publications {
             display: grid;
             gap: 15px;
         }
 
+        /* Individual publication item */
         .publication-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             padding: 20px;
             border-radius: 12px;
-            border-left: 4px solid #4ade80;
+            border-left: 4px solid #f7c77c;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
-            color: #c0c0c0;
+            color: #d0d0d0; /* Light gray text */
         }
 
+        /* Hover effect for publications */
         .publication-item:hover {
             transform: translateX(10px);
         }
 
+        /* Activities section grid */
         .activities {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
+        /* Individual activity item */
         .activity-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
         }
 
+        /* Hover effect for activities */
         .activity-item:hover {
             transform: translateY(-5px);
         }
 
+        /* Activity icons */
         .activity-item i {
             font-size: 2rem;
-            color: #4ade80;
+            color: #f7c77c; /* Gold icons */
             margin-bottom: 10px;
         }
 
+        /* Activity titles */
         .activity-item h3 {
-            color: #e0e0e0;
-            margin-bottom: 10px;
+            color: #ffffff; /* White titles */
+            margin-bottom: 8px;
         }
 
+        /* Activity descriptions */
         .activity-item p {
-            color: #a0a0a0;
+            color: #b0b0b0; /* Muted gray text */
         }
 
+        /* Footer styling */
         footer {
             text-align: center;
             padding: 30px;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Responsive design for mobile devices */
         @media (max-width: 768px) {
+            /* Stack profile section vertically on mobile */
             .profile-section {
                 flex-direction: column;
                 text-align: center;
             }
 
+            /* Stack contact info vertically on mobile */
             .contact-info {
                 flex-direction: column;
                 gap: 15px;
             }
 
+            /* Stack headers vertically on mobile */
             .job-header, .edu-header, .project-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
+            /* Add margin to duration/grade on mobile */
             .duration, .grade {
                 margin-top: 10px;
             }
 
+            /* Reduce padding on mobile */
             .section {
                 padding: 30px 20px;
             }
 
+            /* Smaller name size on mobile */
             .profile-info h1 {
                 font-size: 2rem;
             }
         }
 
+        /* Decorative floating shapes background */
         .floating-shapes {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            pointer-events: none; /* Don't interfere with user interaction */
+            z-index: -1; /* Behind all content */
         }
 
+        /* Individual floating shape */
         .shape {
             position: absolute;
-            opacity: 0.1;
+            opacity: 0.1; /* Very subtle */
             animation: float 6s ease-in-out infinite;
+            font-size: 2rem;
+            color: #f7c77c; /* Gold color */
         }
 
+        /* Positioning for different shapes */
         .shape:nth-child(1) {
             top: 20%;
             left: 10%;
@@ -407,30 +486,42 @@
             animation-delay: 4s;
         }
 
+        /* Floating animation */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
+        /* Publication item strong text styling */
+        .publication-item strong {
+            color: #f7c77c; /* Gold for publication titles */
+        }
     </style>
 </head>
 <body>
+    <!-- Decorative floating shapes in background -->
     <div class="floating-shapes">
         <div class="shape">🔬</div>
         <div class="shape">📊</div>
         <div class="shape">🤖</div>
     </div>
 
+    <!-- Main content container -->
     <div class="container">
+        <!-- Header section with profile information -->
         <header>
             <div class="profile-section">
+                <!-- Profile image/initials circle -->
                 <div class="profile-image">
                     AR
                 </div>
+                <!-- Name and title -->
                 <div class="profile-info">
                     <h1>Arka Prava Roy</h1>
                     <div class="title">Data Scientist & ML Engineer</div>
                 </div>
             </div>
+            <!-- Contact information -->
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
@@ -447,6 +538,7 @@
             </div>
         </header>
 
+        <!-- Professional summary section -->
         <section class="section">
             <h2><i class="fas fa-user-circle"></i> Summary</h2>
             <div class="summary">
@@ -454,9 +546,11 @@
             </div>
         </section>
 
+        <!-- Skills section -->
         <section class="section">
             <h2><i class="fas fa-cogs"></i> Skills</h2>
             <div class="skills-grid">
+                <!-- Technical skills category -->
                 <div class="skill-category">
                     <h3>Technical Skills</h3>
                     <div class="skill-tags">
@@ -473,6 +567,7 @@
                         <span class="skill-tag">MLOps</span>
                     </div>
                 </div>
+                <!-- Programming languages category -->
                 <div class="skill-category">
                     <h3>Programming</h3>
                     <div class="skill-tags">
@@ -480,6 +575,7 @@
                         <span class="skill-tag">SQL</span>
                     </div>
                 </div>
+                <!-- Frameworks category -->
                 <div class="skill-category">
                     <h3>Frameworks</h3>
                     <div class="skill-tags">
@@ -488,6 +584,7 @@
                         <span class="skill-tag">Keras</span>
                     </div>
                 </div>
+                <!-- Tools and cloud platforms category -->
                 <div class="skill-category">
                     <h3>Tools & Cloud</h3>
                     <div class="skill-tags">
@@ -502,9 +599,11 @@
             </div>
         </section>
 
+        <!-- Professional experience section -->
         <section class="section">
             <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
             
+            <!-- Current position at Intellithink -->
             <div class="experience-item">
                 <div class="job-header">
                     <div>
@@ -525,6 +624,7 @@
                 </ul>
             </div>
 
+            <!-- Undergraduate research position -->
             <div class="experience-item">
                 <div class="job-header">
                     <div>
@@ -539,6 +639,7 @@
                 </ul>
             </div>
 
+            <!-- IIT Patna research internship -->
             <div class="experience-item">
                 <div class="job-header">
                     <div>
@@ -553,6 +654,7 @@
                 </ul>
             </div>
 
+            <!-- ISI Kolkata research internship -->
             <div class="experience-item">
                 <div class="job-header">
                     <div>
@@ -567,8 +669,10 @@
             </div>
         </section>
 
+        <!-- Education section -->
         <section class="section">
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <!-- Bachelor's degree -->
             <div class="education-item">
                 <div class="edu-header">
                     <div>
@@ -578,6 +682,7 @@
                     <div class="grade">CGPA: 9.1/10 (July 2017-July 2021)</div>
                 </div>
             </div>
+            <!-- Higher secondary education -->
             <div class="education-item">
                 <div class="edu-header">
                     <div>
@@ -589,9 +694,11 @@
             </div>
         </section>
 
+        <!-- Notable projects section -->
         <section class="section">
             <h2><i class="fas fa-project-diagram"></i> Notable Projects</h2>
             
+            <!-- EmotionGIF project -->
             <div class="project-item">
                 <div class="project-header">
                     <div class="project-title">EmotionGIF 2020 - SocialNLP 2020 (ACL 2020)</div>
@@ -602,6 +709,7 @@
                 </ul>
             </div>
 
+            <!-- Eye-gaze analysis project -->
             <div class="project-item">
                 <div class="project-header">
                     <div class="project-title">Eyes Speak Out Mind: Deep Models for Gaze-Based Analysis</div>
@@ -612,6 +720,7 @@
                 </ul>
             </div>
 
+            <!-- Epileptic seizure recognition project -->
             <div class="project-item">
                 <div class="project-header">
                     <div class="project-title">NoC-Based ANN Framework for Epileptic Seizure Recognition</div>
@@ -622,6 +731,7 @@
             </div>
         </section>
 
+        <!-- Publications section -->
         <section class="section">
             <h2><i class="fas fa-file-alt"></i> Publications</h2>
             <div class="publications">
@@ -637,19 +747,23 @@
             </div>
         </section>
 
+        <!-- Extracurricular activities section -->
         <section class="section">
             <h2><i class="fas fa-heart"></i> Extracurricular Activities</h2>
             <div class="activities">
+                <!-- NSS volunteer activity -->
                 <div class="activity-item">
                     <i class="fas fa-hands-helping"></i>
                     <h3>NSS Volunteer</h3>
                     <p>NIT Durgapur (2017-2018)</p>
                 </div>
+                <!-- Recitation activity -->
                 <div class="activity-item">
                     <i class="fas fa-microphone"></i>
                     <h3>Recitation</h3>
                     <p>Awards in several competitions</p>
                 </div>
+                <!-- Swimming activity -->
                 <div class="activity-item">
                     <i class="fas fa-swimmer"></i>
                     <h3>Swimming</h3>
@@ -658,6 +772,7 @@
             </div>
         </section>
 
+        <!-- Footer -->
         <footer>
             <p>&copy; 2025 Arka Prava Roy. Built with passion for data science and innovation.</p>
         </footer>
